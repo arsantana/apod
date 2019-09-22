@@ -1,23 +1,34 @@
-import React, { Component } from 'react';
+import React from 'react';
+import './css/imagecard.css';
 
-export default class ImageCard extends Component {
-	render() {
+const ImageCard = (props) => {
+
+		const {title, hdurl, explanation, date, copyright } = props.data;
+
 		return(
-			
-					<div className="card" style={{margin: "50px"}}>
-						<div className="card-image">
-							<img src="" alt="" />
-							<span className="card-title center-align">Card Title</span>
-						</div>
-						<div className="card-content">
-							<p>I am a very simple card. I am good at containing small bits of information.
-          I am convenient because I require little markup to use effectively.</p>
-						</div>
-						<div className="card-action">
-							<a href="#">Link</a>
-						</div>
+
+			<div className="card activator" style={{margin: "50px"}}>
+				<div className="card-image">
+					<img className="activator responsive-img" src={hdurl} alt={title} />
+					<div className="card-action">
+						<h4 className=" center black-text">{title}</h4>
+						<h6>© {copyright} | {date}</h6>
+						<br/> 
+						<div className="btn grey lighten-3 black-text activator z-depth-1 waves-effect"> Learn More </div>
 					</div>
+				</div>
+				<div className="card-reveal">
+					<span className="card-title close-btn activator right">&times;</span>
+					<h4 className="card-title">{title}</h4>
+					<p>{explanation}</p>
+				</div>
 				
+			</div>	
 		)
-	}
 }
+
+export default ImageCard;
+
+// <div className="card-action">
+// 					<a href={hdurl}>View Image</a>
+// 				</div>
