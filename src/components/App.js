@@ -24,10 +24,13 @@ class App extends Component {
 				this.setState({
 					imageData: response.data
 				})
+
 			})
 			.catch(error => {
 				console.log(error, 'failed to fetch data')
 			});
+
+
 	}
 
 	render() {
